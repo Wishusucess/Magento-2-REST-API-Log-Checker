@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Developer: Hemant Singh Magento 2x Developer
+ * Category:  Wishusucess_WebApiLog
+ * Website:   http://www.wishusucess.com/
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Webapi\Controller\Rest">
+        <plugin name="Wishusucess\WebApiLog" type="Wishusucess\WebApiLog\Plugin\Rest\Api" />
+    </type>
+    <type name="Magento\Framework\Webapi\Rest\Response">
+        <plugin name="Wishusucess\WebApiLog" type="Wishusucess\WebApiLog\Plugin\Rest\Api" />
+    </type>
+    <type name="Wishusucess\WebApiLog\Logger\Handler">
+        <arguments>
+            <argument name="name" xsi:type="string">webapi_logger</argument>
+            <argument name="handlers" xsi:type="array">
+                <item name="debug" xsi:type="object">Wishusucess\WebApiLog\Logger\Handler\Debug</item>
+            </argument>
+        </arguments>
+    </type>
+</config>
